@@ -13,7 +13,7 @@ jobs:
 
       - name: Extract project
         run: |
-          unzip -q Student_Companion_Project_For_Phone_FINAL.zip -d student_companion
+          unzip -q Student_Companion_Project_For_Phone.zip -d student_companion
           cd student_companion
           ls
 
