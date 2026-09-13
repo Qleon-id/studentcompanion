@@ -1,0 +1,43 @@
+name: Build Student Companion APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download project ZIP
+        uses: actions/checkout@v4
+
+      - name: Extract project
+        run: |
+          unzip -q Student_Companion_Project_For_Phone.zip -d student_companion
+          cd student_companion
+          ls
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.7'
+          channel: stable
+          cache: true
+
+      - name: Get dependencies
+        working-directory: student_companion
+        run: flutter pub get
+
+      - name: Analyze project
+        working-directory: student_companion
+        run: flutter analyze
+
+      - name: Build APK
+        working-directory: student_companion
+        run: flutter build apk --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: student-companion-apk
+          path: student_companion/build/app/outputs/flutter-apk/app-release.apk
