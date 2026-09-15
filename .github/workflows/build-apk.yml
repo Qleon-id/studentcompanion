@@ -16,7 +16,7 @@ jobs:
 
       - name: Extract project
         run: |
-          unzip -q Student_Companion_Project_For_Phone_V210_EXAM_COUNTDOWN_FIX.zip -d student_companion
+          unzip -q Student_Companion_Project_For_Phone_V211_CHECKLIST_EXAM_VISIBILITY.zip -d student_companion
           cd student_companion
           ls
 
