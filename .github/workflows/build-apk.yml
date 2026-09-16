@@ -16,7 +16,7 @@ jobs:
 
       - name: Extract project
         run: |
-          unzip -q Student_Companion_V2.18.2_Dashboard_2.0.zip -d student_companion
+          unzip -q Student_Companion_V2.18.2_STUCERA_Rebrand.zip -d student_companion
           cd student_companion
           ls
 
